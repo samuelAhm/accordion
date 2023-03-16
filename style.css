@@ -12,87 +12,57 @@ body {
   min-height: 100vh;
   background-color: #fee;
 }
-.container {
-  margin: 0 40px;
-  max-width: 600px;
+
+.accordion {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-}
-
-.container h1 {
-  color: rgb(27, 88, 68);
-}
-
-.container .tab {
-  position: relative;
+  gap: 1rem;
+  max-width: 530px;
+  width: 100%;
   background-color: #fff;
-  padding: 0 20px 20px;
+  margin: 0 15px;
+  padding: 15px;
   border-radius: 8px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+.accordion .accordion-content {
+  background-color: #fff7ff;
+  border-radius: 4px;
+  border: 1px solid #ffd6b3;
   overflow: hidden;
-  border-bottom: 1px solid;
 }
-
-.container .tab input {
-  appearance: none;
+.accordion-content.open {
+  padding-bottom: 10px;
 }
-
-.container .tab label {
+.accordion-content header {
   display: flex;
   align-items: center;
-  /* justify-content: space-between; */
+  justify-content: space-between;
+  min-height: 50px;
+  padding: 0 1rem;
   cursor: pointer;
-  gap: 0.5rem;
+  transition: all 0.2s;
 }
 
-.container .tab label::after {
-  content: "+";
-  position: absolute;
-  right: 20px;
-  font-size: 2em;
-  color: rgba(0, 0, 0, 0.3);
-  transition: transform 0.5s;
+.accordion-content.open header {
+  min-height: 35px;
 }
 
-.container .tab:hover label::after {
-  color: #333;
-}
-
-.container .tab input:checked ~ label::after {
-  /* content: "-"; */
-  transform: rotate(135deg);
-}
-
-.container .tab label h2 {
-  width: 40px;
-  height: 40px;
-  background-color: #333;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  font-size: 1.4rem;
-  border-radius: 8px;
-}
-.container .tab label h3 {
-  position: relative;
+.accordion-content header .title {
+  font-size: 14px;
   font-weight: 500;
-  color: rgb(69, 79, 79);
-  z-index: 10;
-}
-
-.container .tab .content {
-  max-height: 0;
-  transition: 0.5s;
-  overflow: hidden;
-}
-
-.container .tab input:checked ~ .content {
-  max-height: 100vh;
-}
-
-.container .tab .content p {
-  position: inherit;
-  padding: 10px 0;
   color: #333;
+}
+
+.accordion-content header i {
+  font-size: 1.5rem;
+  color: #333;
+}
+.accordion-content .description {
+  padding: 0 1rem;
+  font-size: 12px;
+  font-weight: 400;
+  height: 0;
+  transition: all 0.2s linear;
 }
