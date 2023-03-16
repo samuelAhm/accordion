@@ -1,0 +1,98 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #fee;
+}
+.container {
+  margin: 0 40px;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.container h1 {
+  color: rgb(27, 88, 68);
+}
+
+.container .tab {
+  position: relative;
+  background-color: #fff;
+  padding: 0 20px 20px;
+  border-radius: 8px;
+  overflow: hidden;
+  border-bottom: 1px solid;
+}
+
+.container .tab input {
+  appearance: none;
+}
+
+.container .tab label {
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  cursor: pointer;
+  gap: 0.5rem;
+}
+
+.container .tab label::after {
+  content: "+";
+  position: absolute;
+  right: 20px;
+  font-size: 2em;
+  color: rgba(0, 0, 0, 0.3);
+  transition: transform 0.5s;
+}
+
+.container .tab:hover label::after {
+  color: #333;
+}
+
+.container .tab input:checked ~ label::after {
+  /* content: "-"; */
+  transform: rotate(135deg);
+}
+
+.container .tab label h2 {
+  width: 40px;
+  height: 40px;
+  background-color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 1.4rem;
+  border-radius: 8px;
+}
+.container .tab label h3 {
+  position: relative;
+  font-weight: 500;
+  color: rgb(69, 79, 79);
+  z-index: 10;
+}
+
+.container .tab .content {
+  max-height: 0;
+  transition: 0.5s;
+  overflow: hidden;
+}
+
+.container .tab input:checked ~ .content {
+  max-height: 100vh;
+}
+
+.container .tab .content p {
+  position: inherit;
+  padding: 10px 0;
+  color: #333;
+}
